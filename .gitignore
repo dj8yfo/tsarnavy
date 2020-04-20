@@ -1,0 +1,5 @@
+.venv
+tags
+__pycache__
+media
+Session.vim

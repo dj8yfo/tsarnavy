@@ -1,0 +1,8 @@
+Host: http://localhost:8000
+
+POST /liker/users/singup/
+{
+    "email": "barbara_streisand@protonmail.com",
+    "username": "kadmin3423424",
+    "password": "liker"
+}

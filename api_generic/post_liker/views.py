@@ -1,9 +1,14 @@
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
+from .serializers import PostSerializer
+from .models import Post
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import viewsets, mixins
+from rest_framework.decorators import action
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
@@ -35,3 +40,22 @@ class UserObtainToken(APIView):
         result["access"] = str(token_pair.access_token)
 
         return Response(result, status=status.HTTP_200_OK)
+
+
+class PostsViewset(mixins.CreateModelMixin, viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            new_post = serializer.save(author=request.user)
+            headers = self.get_success_headers(serializer.data)
+            return Response(
+                serializer.data, status=status.HTTP_201_CREATED, headers=headers
+            )
+        else:
+            return Response(serializer._errors, status=status.HTTP_400_BAD_REQUEST)

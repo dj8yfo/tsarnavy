@@ -3,7 +3,7 @@ Host: http://localhost:8000
 POST /liker/users/singup/
 {
     "email": "barbara_streisand@protonmail.com",
-    "username": "kadmin_patchwork",
+    "username": "kadmin_patchwork999",
     "password": "liker"
 }
 
@@ -19,14 +19,32 @@ POST /liker/users/singup/
 }
 
 
-# initial username/password auth
-Authorization: Basic a2FkbWluX3BhdGNod29yazpsaWtlcg==
+TEMPLATE access_token
+Authorization: Bearer ${json["access"]}
 
-POST /liker/users/token/
+# initial username/password auth
+Authorization: Basic a2FkbWluX3BhdGNod29yazk5OTpsaWtlcg==
+
+POST /liker/users/token/ | access_token
 
 
 # generate token with prev token
-
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDU1NzM1LCJqdGkiOiJiNWFjYjdlN2UyOGM0MWZkYjlhNTFmZjY2ODliZGViNCIsInVzZXJfaWQiOjl9.TQQUeRpL9scMZTyHSasHokAT4cUDOtZ8TCQ41_7xmoU
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkxMDgxLCJqdGkiOiJjODhiMjhhZGU1ZmQ0ZWYyYmY1MjU4ZjBkZjRjNGRkMCIsInVzZXJfaWQiOjExfQ.Jg_nAl9XR4Brxzqp_nLWxPOT-ZLHLsoc_YuwlbALRgM
 
 POST /liker/users/token/
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkyMjUwLCJqdGkiOiIyZjIzOGNlMTllM2U0Y2FiYTdkZjJhZjZlM2ViYmY0NCIsInVzZXJfaWQiOjE0fQ.wg6FFIhR_zbnzROdsk30PdMGuHYgHp1Uuv89HP_qvTQ
+
+Content-Type: application/json
+
+POST /liker/posts/
+{
+        "title": "once upon a time",
+        "body": "shit of beautiful kind happended"
+}
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkxOTE5LCJqdGkiOiJhY2UxYzM4NTgyOGM0NzY4ODU0NzJhNGMwOWI4MjFhYyIsInVzZXJfaWQiOjE0fQ.8OkrT02U-pVK2_xmBHNjwkxMAJlO-nTWXRYz9YtKT7g
+
+GET /liker/posts/

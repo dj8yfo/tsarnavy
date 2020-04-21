@@ -3,6 +3,30 @@ Host: http://localhost:8000
 POST /liker/users/singup/
 {
     "email": "barbara_streisand@protonmail.com",
-    "username": "kadmin3423424",
+    "username": "kadmin_patchwork",
     "password": "liker"
 }
+
+
+#expected to fail
+Authorization: Basic a2FkbWluMzQyMzQyNDpsaWtlcg==
+
+POST /liker/users/singup/
+{
+    "email": "barbara_streisand@protonmail.com",
+    "username": "kadmin34424",
+    "password": "liker"
+}
+
+
+# initial username/password auth
+Authorization: Basic a2FkbWluX3BhdGNod29yazpsaWtlcg==
+
+POST /liker/users/token/
+
+
+# generate token with prev token
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDU1NzM1LCJqdGkiOiJiNWFjYjdlN2UyOGM0MWZkYjlhNTFmZjY2ODliZGViNCIsInVzZXJfaWQiOjl9.TQQUeRpL9scMZTyHSasHokAT4cUDOtZ8TCQ41_7xmoU
+
+POST /liker/users/token/

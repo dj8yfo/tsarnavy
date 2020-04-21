@@ -7,6 +7,7 @@ app_name = 'post_liker'
 
 router = routers.DefaultRouter()
 router.register('posts', views.PostsViewset)
+router.register('actions', views.ActionViewset)
 
 urlpatterns = [
     path('users/singup/',

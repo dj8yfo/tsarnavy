@@ -3,7 +3,7 @@ Host: http://localhost:8000
 POST /liker/users/singup/
 {
     "email": "barbara_streisand@protonmail.com",
-    "username": "kadmin_patchwork999",
+    "username": "artful_restore",
     "password": "liker"
 }
 
@@ -22,11 +22,17 @@ POST /liker/users/singup/
 TEMPLATE access_token
 Authorization: Bearer ${json["access"]}
 
+# the login view
 # initial username/password auth
-Authorization: Basic a2FkbWluX3BhdGNod29yazk5OTpsaWtlcg==
+# Authorization: Basic a2FkbWluX3BhdGNod29ya19vcnQ6bGlrZXI=
+# Authorization: Basic YXJ0ZnVsX3Jlc3RvcmU6bGlrZXI=
+
+Authorization: Basic YWRtaW46YWRtaW4xOTkw
 
 POST /liker/users/token/ | access_token
 
+
+##########################################
 
 # generate token with prev token
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkxMDgxLCJqdGkiOiJjODhiMjhhZGU1ZmQ0ZWYyYmY1MjU4ZjBkZjRjNGRkMCIsInVzZXJfaWQiOjExfQ.Jg_nAl9XR4Brxzqp_nLWxPOT-ZLHLsoc_YuwlbALRgM
@@ -34,17 +40,31 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 POST /liker/users/token/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkyMjUwLCJqdGkiOiIyZjIzOGNlMTllM2U0Y2FiYTdkZjJhZjZlM2ViYmY0NCIsInVzZXJfaWQiOjE0fQ.wg6FFIhR_zbnzROdsk30PdMGuHYgHp1Uuv89HP_qvTQ
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTcwNTM4LCJqdGkiOiI3ZDZlN2JiNmY4ZmM0YzA1ODgxNjNmNzZmNWE5MWFiNiIsInVzZXJfaWQiOjE4fQ.e5BvhfcH2Qz880CfNTuI5n8LTph2Kc2iKLva1pezyf0
 Content-Type: application/json
 
 POST /liker/posts/
 {
         "title": "once upon a time",
-        "body": "shit of beautiful kind happended"
+        "body": "mind of beautiful kind happended"
 }
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkxOTE5LCJqdGkiOiJhY2UxYzM4NTgyOGM0NzY4ODU0NzJhNGMwOWI4MjFhYyIsInVzZXJfaWQiOjE0fQ.8OkrT02U-pVK2_xmBHNjwkxMAJlO-nTWXRYz9YtKT7g
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY2MzgwLCJqdGkiOiJhNGMyOGEwNGQyYzY0MjcyYWUxY2I1ZDg2MmRiNDJkNCIsInVzZXJfaWQiOjE2fQ.g3OZpEB1a31BRWqZ0jAQoyssQSUjoUew_mG4r25BEkQ
 
 GET /liker/posts/
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY2NTgxLCJqdGkiOiIwNzM1ZmE0NTgxMTM0YjRiYmIyMjU5YjRiYTIyN2I3YyIsInVzZXJfaWQiOjE2fQ.ef2DuGnxQ-SxUG_hMhtIeL1_vZMgRMuf0xAkuwioqJ8
+
+POST /liker/posts/9/like/
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY3Mzc3LCJqdGkiOiIwOGJjNDliMzRkMmU0MjUzYWU5NGRkYWI5YTlhMzUwNSIsInVzZXJfaWQiOjE2fQ.WKe8MGib9cs9-0BfbYPcfd-NZ5XHHAj58qcjdu_9j2I
+
+POST /liker/posts/9/unlike/
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTcxMzU5LCJqdGkiOiIxNGZhODljZmE2MmI0NDliOGRhN2JiYjBhOWYyZjkxYSIsInVzZXJfaWQiOjE3fQ.vCZ-w6nX-rbNyeeqiiLxYViW2THmARExi-WtDKeUK2I
+
+GET /liker/actions/

@@ -15,5 +15,8 @@ urlpatterns = [
     path(
         "user/<pk>/last_actions", views.LastActionsView.as_view(), name="last_actions"
     ),
+    path(
+        "api/analytics/", views.LikesAnalytics.as_view(), name="likes_analysis"
+    ),
     path("", include(router.urls)),
 ]

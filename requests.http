@@ -31,7 +31,6 @@ Authorization: Basic YWRtaW46YWRtaW4xOTkw
 
 POST /liker/users/token/ | access_token
 
-
 ########################################
 
 # generate token with prev token
@@ -40,7 +39,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 POST /liker/users/token/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTcwNTM4LCJqdGkiOiI3ZDZlN2JiNmY4ZmM0YzA1ODgxNjNmNzZmNWE5MWFiNiIsInVzZXJfaWQiOjE4fQ.e5BvhfcH2Qz880CfNTuI5n8LTph2Kc2iKLva1pezyf0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMzMTA5LCJqdGkiOiJlZTgwMzkzMjMzMGU0ZWRhODU2NTUxMTU0OTExODdjOSIsInVzZXJfaWQiOjE3fQ.AM-IfXmbQ6FMhuV-E2un-CE2mIoFOjgGpKwO4D7taF0
 Content-Type: application/json
 
 POST /liker/posts/
@@ -50,14 +49,14 @@ POST /liker/posts/
 }
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTczMTcyLCJqdGkiOiIyM2IyNGRhNTc0MmI0ODZiOGVhNWI3NTgwOWUxZTJjMiIsInVzZXJfaWQiOjE4fQ.5Q5iFU7bkIe1Wfljar3nBCiz-I39QPVzbSMfVJYIa30
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMzMTA5LCJqdGkiOiJlZTgwMzkzMjMzMGU0ZWRhODU2NTUxMTU0OTExODdjOSIsInVzZXJfaWQiOjE3fQ.AM-IfXmbQ6FMhuV-E2un-CE2mIoFOjgGpKwO4D7taF0
 
 GET /liker/posts/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY2NTgxLCJqdGkiOiIwNzM1ZmE0NTgxMTM0YjRiYmIyMjU5YjRiYTIyN2I3YyIsInVzZXJfaWQiOjE2fQ.ef2DuGnxQ-SxUG_hMhtIeL1_vZMgRMuf0xAkuwioqJ8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMyNjUxLCJqdGkiOiJkYzJiMjM4ZGI0MDU0NWRhYTFjODg4YzFiYzQwZGZlMCIsInVzZXJfaWQiOjE3fQ.fxxEUf0SmyGjx7Dx713NeuEOIyNLntJ_AyvcOP5fhEo
 
-POST /liker/posts/9/like/
+POST /liker/posts/20/like/
 
 
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY3Mzc3LCJqdGkiOiIwOGJjNDliMzRkMmU0MjUzYWU5NGRkYWI5YTlhMzUwNSIsInVzZXJfaWQiOjE2fQ.WKe8MGib9cs9-0BfbYPcfd-NZ5XHHAj58qcjdu_9j2I
@@ -65,12 +64,16 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 POST /liker/posts/9/unlike/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTc5NDM1LCJqdGkiOiIxZTExNTk2ZTBjY2M0YzQwYWQyMjliZjQ3OTlmYThmMCIsInVzZXJfaWQiOjE3fQ.8wU8Q-470KfEP6pe9-76QhZjBzu3GMNgKo1IbEZpPe0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTgyMzY0LCJqdGkiOiI3MDIxOWM5YTU4YjM0MjU3YmY5ZDMzMmYxOThlNTBhZCIsInVzZXJfaWQiOjE3fQ.Nu9YLdWzIqfZtDCx7Ni7IsuWniONXZcYcKiMaBuGYN0
 
 GET /liker/actions/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTc5NDM1LCJqdGkiOiIxZTExNTk2ZTBjY2M0YzQwYWQyMjliZjQ3OTlmYThmMCIsInVzZXJfaWQiOjE3fQ.8wU8Q-470KfEP6pe9-76QhZjBzu3GMNgKo1IbEZpPe0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMzMTA5LCJqdGkiOiJlZTgwMzkzMjMzMGU0ZWRhODU2NTUxMTU0OTExODdjOSIsInVzZXJfaWQiOjE3fQ.AM-IfXmbQ6FMhuV-E2un-CE2mIoFOjgGpKwO4D7taF0
 
-GET /liker/user/16/last_actions
+GET /liker/user/17/last_actions
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjM5ODUyLCJqdGkiOiJjYzkzZmExZDNhN2E0ODQ4OTMxYjA3OWM5ZTVhMGFlYiIsInVzZXJfaWQiOjE3fQ.3Bq7xTTNj0A2b-d1tMgxY3wh67g8F-T_AyRqkLEoJsQ
+
+GET /liker/api/analytics/?date_from=2020-04-21&date_to=2020-04-22
 

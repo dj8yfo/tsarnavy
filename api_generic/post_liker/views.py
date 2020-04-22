@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
 from .serializers import PostSerializer, ActionSerializer
-from .models import Post, Action
+from .models import Post, Action, LikingActivity
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
@@ -12,7 +12,10 @@ from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .utils import create_action, POST_CREATE, POST_LIKE, POST_UNLIKE, LOGIN
-import itertools
+from django.db.models import DateField
+from django.db.models.functions import Trunc
+from django.db.models.aggregates import Count
+from datetime import datetime
 
 
 class UserSignupView(APIView):
@@ -109,9 +112,7 @@ class LastActionsView(APIView):
         )
         last_action = (
             last_actions.filter(
-                models.Q(verb=POST_LIKE)
-                | models.Q(verb=POST_CREATE)
-                | models.Q(verb=POST_UNLIKE)
+                models.Q(verb=POST_LIKE) | models.Q(verb=POST_CREATE) | models.Q(verb=POST_UNLIKE)
             )
             .order_by("-created")
             .first()
@@ -121,3 +122,37 @@ class LastActionsView(APIView):
             "last_action": ActionSerializer(last_action).data,
         }
         return Response(result_dict, status=status.HTTP_200_OK)
+
+
+class LikesAnalytics(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, format=None):
+        from_date = request.GET["date_from"]
+        date_to = request.GET["date_to"]
+        last_actions = (
+            LikingActivity.objects.annotate(
+                start_day=Trunc("created", "day", output_field=DateField())
+            )
+            .values("start_day")
+            .annotate(likes=Count("*"))
+        )
+
+        try:
+            from_date = datetime.strptime(from_date, "%Y-%m-%d")
+            date_to = datetime.strptime(date_to, "%Y-%m-%d")
+            res = filter(
+                lambda x: x['start_day'] >= from_date.date()\
+                and x['start_day'] <= date_to.date(),
+                last_actions
+            )
+            return Response(
+                {"from_date": from_date, "date_to": date_to, 'likings': res},
+                status=status.HTTP_200_OK
+            )
+        except ValueError as exc:
+            return Response(
+                {"incorret_param": str(exc)},
+                status=status.HTTP_400_BAD_REQUEST
+            )

@@ -10,9 +10,6 @@ class LikingActivity(models.Model):
     post = models.ForeignKey("Post", on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, db_index=True)
 
-    class Meta:
-        ordering = ("-created",)
-
     def __str__(self):
         return "{} likes {} at {}".format(self.user, self.post, self.created)
 

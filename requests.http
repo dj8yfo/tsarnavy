@@ -32,7 +32,7 @@ Authorization: Basic YWRtaW46YWRtaW4xOTkw
 POST /liker/users/token/ | access_token
 
 
-##########################################
+########################################
 
 # generate token with prev token
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NDkxMDgxLCJqdGkiOiJjODhiMjhhZGU1ZmQ0ZWYyYmY1MjU4ZjBkZjRjNGRkMCIsInVzZXJfaWQiOjExfQ.Jg_nAl9XR4Brxzqp_nLWxPOT-ZLHLsoc_YuwlbALRgM
@@ -50,7 +50,7 @@ POST /liker/posts/
 }
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY2MzgwLCJqdGkiOiJhNGMyOGEwNGQyYzY0MjcyYWUxY2I1ZDg2MmRiNDJkNCIsInVzZXJfaWQiOjE2fQ.g3OZpEB1a31BRWqZ0jAQoyssQSUjoUew_mG4r25BEkQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTczMTcyLCJqdGkiOiIyM2IyNGRhNTc0MmI0ODZiOGVhNWI3NTgwOWUxZTJjMiIsInVzZXJfaWQiOjE4fQ.5Q5iFU7bkIe1Wfljar3nBCiz-I39QPVzbSMfVJYIa30
 
 GET /liker/posts/
 
@@ -65,6 +65,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 POST /liker/posts/9/unlike/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTcxMzU5LCJqdGkiOiIxNGZhODljZmE2MmI0NDliOGRhN2JiYjBhOWYyZjkxYSIsInVzZXJfaWQiOjE3fQ.vCZ-w6nX-rbNyeeqiiLxYViW2THmARExi-WtDKeUK2I
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTc5NDM1LCJqdGkiOiIxZTExNTk2ZTBjY2M0YzQwYWQyMjliZjQ3OTlmYThmMCIsInVzZXJfaWQiOjE3fQ.8wU8Q-470KfEP6pe9-76QhZjBzu3GMNgKo1IbEZpPe0
 
 GET /liker/actions/
+
+
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTc5NDM1LCJqdGkiOiIxZTExNTk2ZTBjY2M0YzQwYWQyMjliZjQ3OTlmYThmMCIsInVzZXJfaWQiOjE3fQ.8wU8Q-470KfEP6pe9-76QhZjBzu3GMNgKo1IbEZpPe0
+
+GET /liker/user/16/last_actions
+

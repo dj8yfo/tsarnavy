@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+from django.db import models
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
 from .serializers import PostSerializer, ActionSerializer
@@ -10,7 +11,8 @@ from rest_framework import status
 from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .utils import create_action
+from .utils import create_action, POST_CREATE, POST_LIKE, POST_UNLIKE, LOGIN
+import itertools
 
 
 class UserSignupView(APIView):
@@ -39,7 +41,7 @@ class UserObtainToken(APIView):
         result = {}
         result["refresh"] = str(token_pair)
         result["access"] = str(token_pair.access_token)
-        create_action(request.user, "logged in ", request.user)
+        create_action(request.user, LOGIN, request.user)
 
         return Response(result, status=status.HTTP_200_OK)
 
@@ -55,7 +57,7 @@ class PostsViewset(mixins.CreateModelMixin, viewsets.ReadOnlyModelViewSet):
 
         if serializer.is_valid():
             newpost = serializer.save(author=request.user)
-            create_action(request.user, "created", newpost)
+            create_action(request.user, POST_CREATE, newpost)
             headers = self.get_success_headers(serializer.data)
             return Response(
                 serializer.data, status=status.HTTP_201_CREATED, headers=headers
@@ -68,7 +70,7 @@ class PostsViewset(mixins.CreateModelMixin, viewsets.ReadOnlyModelViewSet):
         post = self.get_object()
         if request.user not in post.users_like.all():
             post.users_like.add(request.user)
-            create_action(request.user, "liked", post)
+            create_action(request.user, POST_LIKE, post)
             return Response({"liked": True}, status=status.HTTP_201_CREATED)
         else:
             return Response(
@@ -80,7 +82,7 @@ class PostsViewset(mixins.CreateModelMixin, viewsets.ReadOnlyModelViewSet):
         post = self.get_object()
         if request.user in post.users_like.all():
             post.users_like.remove(request.user)
-            create_action(request.user, "unliked", post)
+            create_action(request.user, POST_UNLIKE, post)
             return Response({"unliked": True}, status=status.HTTP_201_CREATED)
         else:
             return Response(
@@ -94,3 +96,28 @@ class ActionViewset(viewsets.ReadOnlyModelViewSet):
     serializer_class = ActionSerializer
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated, IsAdminUser)
+
+
+class LastActionsView(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAuthenticated, IsAdminUser)
+
+    def get(self, request, pk, format=None):
+        last_actions = Action.objects.filter(user__id=pk)
+        last_login = (
+            last_actions.filter(models.Q(verb=LOGIN)).order_by("-created").first()
+        )
+        last_action = (
+            last_actions.filter(
+                models.Q(verb=POST_LIKE)
+                | models.Q(verb=POST_CREATE)
+                | models.Q(verb=POST_UNLIKE)
+            )
+            .order_by("-created")
+            .first()
+        )
+        result_dict = {
+            "last_login": ActionSerializer(last_login).data,
+            "last_action": ActionSerializer(last_action).data,
+        }
+        return Response(result_dict, status=status.HTTP_200_OK)

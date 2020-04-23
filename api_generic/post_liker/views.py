@@ -131,24 +131,21 @@ class LikesAnalytics(APIView):
     def get(self, request, format=None):
         from_date = request.GET["date_from"]
         date_to = request.GET["date_to"]
-        last_actions = (
-            LikingActivity.objects.annotate(
-                start_day=Trunc("created", "day", output_field=DateField())
-            )
-            .values("start_day")
-            .annotate(likes=Count("*"))
-        )
 
         try:
             from_date = datetime.strptime(from_date, "%Y-%m-%d")
             date_to = datetime.strptime(date_to, "%Y-%m-%d")
-            res = filter(
-                lambda x: x['start_day'] >= from_date.date()\
-                and x['start_day'] <= date_to.date(),
-                last_actions
+            last_actions = (
+                LikingActivity.objects.annotate(
+                    start_day=Trunc("created", "day", output_field=DateField())
+                )
+                .filter(start_day__gte=from_date.date())
+                .filter(start_day__lte=date_to.date())
+                .values("start_day")
+                .annotate(likes=Count("*"))
             )
             return Response(
-                {"from_date": from_date, "date_to": date_to, 'likings': res},
+                {"from_date": from_date, "date_to": date_to, 'likings': last_actions},
                 status=status.HTTP_200_OK
             )
         except ValueError as exc:

@@ -3,7 +3,7 @@ Host: http://localhost:8000
 POST /liker/users/singup/
 {
     "email": "barbara_streisand@protonmail.com",
-    "username": "artful_restore",
+    "username": "artfulsdf_restore",
     "password": "liker"
 }
 
@@ -25,9 +25,11 @@ Authorization: Bearer ${json["access"]}
 # the login view
 # initial username/password auth
 # Authorization: Basic a2FkbWluX3BhdGNod29ya19vcnQ6bGlrZXI=
-# Authorization: Basic YXJ0ZnVsX3Jlc3RvcmU6bGlrZXI=
+# Authorization: Brasic YXJ0ZnVsX3Jlc3RvcmU6bGlrZXI=
 
+# Authorization: Basic YXJ0ZnVsX3Jlc3RvcmU6bGlrZXI=
 Authorization: Basic YWRtaW46YWRtaW4xOTkw
+# Authorization: Basic YXJ0ZnVsc2RmX3Jlc3RvcmU6bGlrZXI=
 
 POST /liker/users/token/ | access_token
 
@@ -39,7 +41,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 POST /liker/users/token/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMzMTA5LCJqdGkiOiJlZTgwMzkzMjMzMGU0ZWRhODU2NTUxMTU0OTExODdjOSIsInVzZXJfaWQiOjE3fQ.AM-IfXmbQ6FMhuV-E2un-CE2mIoFOjgGpKwO4D7taF0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjUzOTA4LCJqdGkiOiI4YThjMmFmYWExYjE0N2Y4OWQ1MmZmMzE0ZWIwZThiNiIsInVzZXJfaWQiOjZ9.hZybTvEi8G0kdqnttWLEoG-s094wfUx6nJTPQ-2waWk
 Content-Type: application/json
 
 POST /liker/posts/
@@ -49,14 +51,14 @@ POST /liker/posts/
 }
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMzMTA5LCJqdGkiOiJlZTgwMzkzMjMzMGU0ZWRhODU2NTUxMTU0OTExODdjOSIsInVzZXJfaWQiOjE3fQ.AM-IfXmbQ6FMhuV-E2un-CE2mIoFOjgGpKwO4D7taF0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjU1ODg2LCJqdGkiOiJjZDkyM2NiZjJkMTk0OTA4YmIzZmY5MmZhNjU5NTEwOCIsInVzZXJfaWQiOjV9.A1HWOohLoaKGZmq91ecpNH7fpGxe8CrWisgQku64Ppg
 
 GET /liker/posts/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjMyNjUxLCJqdGkiOiJkYzJiMjM4ZGI0MDU0NWRhYTFjODg4YzFiYzQwZGZlMCIsInVzZXJfaWQiOjE3fQ.fxxEUf0SmyGjx7Dx713NeuEOIyNLntJ_AyvcOP5fhEo
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjUzOTA4LCJqdGkiOiI4YThjMmFmYWExYjE0N2Y4OWQ1MmZmMzE0ZWIwZThiNiIsInVzZXJfaWQiOjZ9.hZybTvEi8G0kdqnttWLEoG-s094wfUx6nJTPQ-2waWk
 
-POST /liker/posts/20/like/
+POST /liker/posts/7/like/
 
 
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY3Mzc3LCJqdGkiOiIwOGJjNDliMzRkMmU0MjUzYWU5NGRkYWI5YTlhMzUwNSIsInVzZXJfaWQiOjE2fQ.WKe8MGib9cs9-0BfbYPcfd-NZ5XHHAj58qcjdu_9j2I
@@ -73,7 +75,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 GET /liker/user/17/last_actions
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjM5ODUyLCJqdGkiOiJjYzkzZmExZDNhN2E0ODQ4OTMxYjA3OWM5ZTVhMGFlYiIsInVzZXJfaWQiOjE3fQ.3Bq7xTTNj0A2b-d1tMgxY3wh67g8F-T_AyRqkLEoJsQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjU2MzYyLCJqdGkiOiIzMzJlYjY1MjQzYTE0NDc4YWU5MDE2ZGJhZWM2MTY1ZSIsInVzZXJfaWQiOjV9.lSgitf18nhLNySTFB5k6c9rJpYYTormSUUGbyEEibwA
 
-GET /liker/api/analytics/?date_from=2020-04-21&date_to=2020-04-22
+GET /liker/api/analytics/?date_from=2020-04-21&date_to=2020-04-23
 

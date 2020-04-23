@@ -10,6 +10,7 @@ django = "==3.0.5"
 djangorestframework = "==3.11.0"
 ipython = "*"
 djangorestframework-simplejwt = "==4.4.0"
+pyyaml = "*"
 
 [requires]
 python_version = "3.8"

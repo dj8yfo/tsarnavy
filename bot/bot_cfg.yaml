@@ -1,4 +1,5 @@
-number_of_users: 30
-max_posts_per_user: 50
-max_likes_per_user: 120
+number_of_users: 100
+max_posts_per_user: 10
+max_likes_per_user: 30
+prefix_apply_to: 'http://localhost:8000'
 

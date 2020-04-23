@@ -11,6 +11,8 @@ djangorestframework = "==3.11.0"
 ipython = "*"
 djangorestframework-simplejwt = "==4.4.0"
 pyyaml = "*"
+requests = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

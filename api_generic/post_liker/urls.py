@@ -10,6 +10,7 @@ router.register("posts", views.PostsViewset)
 router.register("actions", views.ActionViewset)
 
 urlpatterns = [
+    # it's preferable to signup
     path("users/singup/", views.UserSignupView.as_view(), name="user_signup"),
     path("users/token/", views.UserObtainToken.as_view(), name="token_obtain_pair"),
     path(

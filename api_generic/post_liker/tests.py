@@ -4,7 +4,7 @@ from django.urls import reverse
 import json
 
 
-class AnimalTestCase(TestCase):
+class LikerTestCase(TestCase):
     # python manage.py dumpdata --exclude auth.permission --exclude contenttypes --natural-foreign > post_liker/fixtures/test_data.json
     # python manage.py test post_liker
     fixtures = ["test_data.json"]

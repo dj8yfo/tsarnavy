@@ -33,6 +33,7 @@ Authorization: Basic YWRtaW46YWRtaW4xOTkw
 
 POST /liker/users/token/ | access_token
 
+
 ########################################
 
 # generate token with prev token
@@ -51,14 +52,14 @@ POST /liker/posts/
 }
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjU1ODg2LCJqdGkiOiJjZDkyM2NiZjJkMTk0OTA4YmIzZmY5MmZhNjU5NTEwOCIsInVzZXJfaWQiOjV9.A1HWOohLoaKGZmq91ecpNH7fpGxe8CrWisgQku64Ppg
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NzE3ODg5LCJqdGkiOiIwMmY4YTc5OTMzZmQ0MzkyYmI4NmQxMjhlYjg0MThlNCIsInVzZXJfaWQiOjV9.Cwr4u3xCyIFwE6tAPyrXXDdaUpFau0pp1LnXq_pbz50
 
 GET /liker/posts/
 
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjUzOTA4LCJqdGkiOiI4YThjMmFmYWExYjE0N2Y4OWQ1MmZmMzE0ZWIwZThiNiIsInVzZXJfaWQiOjZ9.hZybTvEi8G0kdqnttWLEoG-s094wfUx6nJTPQ-2waWk
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NzIyMTcwLCJqdGkiOiIyNDY0ZmYwZDFlYTM0NGZmOWVhNjZlYjk5MzA3Yzg3ZiIsInVzZXJfaWQiOjV9.aHbC6D_6nTnUqd54dF50EkWrzY1B6H4UHJv7Mx2zEFQ
 
-POST /liker/posts/7/like/
+POST /liker/posts/700/like/
 
 
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NTY3Mzc3LCJqdGkiOiIwOGJjNDliMzRkMmU0MjUzYWU5NGRkYWI5YTlhMzUwNSIsInVzZXJfaWQiOjE2fQ.WKe8MGib9cs9-0BfbYPcfd-NZ5XHHAj58qcjdu_9j2I
@@ -75,7 +76,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiY
 
 GET /liker/user/17/last_actions
 
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NjU2MzYyLCJqdGkiOiIzMzJlYjY1MjQzYTE0NDc4YWU5MDE2ZGJhZWM2MTY1ZSIsInVzZXJfaWQiOjV9.lSgitf18nhLNySTFB5k6c9rJpYYTormSUUGbyEEibwA
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg3NzIzMTQwLCJqdGkiOiI3NDhiYzNiNWU3NGM0MGE2OGU4ZGRhNDE1NTdlNzRiYSIsInVzZXJfaWQiOjEwMn0.7byRIN6Rk9Q---YEx_WyR4PkCaeEZQNWMRl23ap1CaY
 
-GET /liker/api/analytics/?date_from=2020-04-21&date_to=2020-04-23
+GET /liker/api/analytics/?date_from=2020-04-21&date_to=2020-04-24
 
